@@ -3,3 +3,6 @@
 ## Team Members:
 
 - Yashvi Arora
+- Navya Kunwar
+
+- Ananya
