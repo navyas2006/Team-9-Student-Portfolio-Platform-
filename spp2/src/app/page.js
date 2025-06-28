@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import axios from "axios";
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +26,7 @@ export default function Home() {
         projects,
       });
     } catch (err) {
-      console.log(err);
+      console.error("Error submitting form:", err);
     }
   };
   return (
