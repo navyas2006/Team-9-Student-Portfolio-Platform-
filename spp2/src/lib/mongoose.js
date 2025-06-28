@@ -1,10 +1,14 @@
-import moongoose from "mongoose";
+import mongoose from "mongoose";
 const connectionToDatabase = async () => {
   try {
-    await moongoose.connect(process.env.MongoURL);
+    const mongoUrl = process.env.MongoURL;
+    if (!mongoUrl) {
+      throw new Error("MongoURL environment variable is not defined.");
+    }
+    await mongoose.connect(mongoUrl);
     console.log("connected to db");
   } catch (err) {
-    console.log(err);
+    console.log("Database connection error:", err);
   }
 };
 export default connectionToDatabase;
