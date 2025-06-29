@@ -123,7 +123,7 @@ export default function Home() {
               }
             ></input>
           </section>
-          <button type="submit" onClick={handleSubmit}>
+          <button type="submit" onClick={handleSubmit} className=" ">
             Submit
           </button>
         </div>
