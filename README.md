@@ -1,84 +1,92 @@
 # Student-Portfolio-Platform-
 
-Overview
+## **Overview**
 
-Welcome to the Student Portfolio & Networking Platform!
+Welcome to the Student Portfolio Platform!
 
 This platform serves as a central hub for students to showcase their academic and professional profiles, including their experience, skills, and projects. It also aims to foster peer connections by allowing users to explore and discover other students' portfolios.
 
-Features
+## **Features**
 
 ✅ User Profile Management: Students can showcase their academic and professional profiles, including experience, skills, and projects.
+
 ✅ Profile Creation & Editing: Users can create new profiles and comprehensively update existing ones.
+
 ✅ Dynamic Forms: Frontend forms allow dynamic addition of multiple entries for experience, skills, and projects.
+
 ✅ Profile Viewing: Users can view their own profiles and, in the future, explore other students' portfolios.
 
-Tech Stack
+## **Tech Stack**
 
-Frontend: Next.js (React), Tailwind CSS
-Backend: Next.js API Routes
-Database: MongoDB (with Mongoose ODM)
-API Client: Axios
+*Frontend*: Next.js (React), Tailwind CSS
 
-Current Progress
+*Backend*: Next.js API Routes
 
-Frontend Profile Management:
+*Database*: MongoDB (with Mongoose ODM)
 
-Enhanced Profile Form: A client-side React component featuring a dynamic form. It allows users to input basic profile details, dynamically add multiple entries for experience, skills, and projects, pre-populate fields by fetching existing data (currently the first user found in DB), and submits data as POST (for new profiles) or PUT (for updates).
+*API Client*: Axios
 
-View My Profile Page: A read-only page that displays the details of a single user's profile (currently displays the first user fetched from the database).
+## **Current Progress**
 
-Basic Page Structure & Navigation:
+**Frontend Profile Management:**
 
-Homepage : Serves as the project's "Welcome Mat," providing a clear introduction and calls to action ("Create/Edit Your Profile", "Explore Portfolios").
+* Enhanced Profile Form: A client-side React component featuring a dynamic form. It allows users to input basic profile details, dynamically add multiple entries for experience, skills, and projects, pre-populate fields by fetching existing data (currently the first user found in DB), and submits data as POST (for new profiles) or PUT (for updates).
 
-Placeholder Pages: Initial page components for home, explore, ranking, and projecttracker within the src/app directory have been created, establishing basic routes.
++ View My Profile Page: A read-only page that displays the details of a single user's profile (currently displays the first user fetched from the database).
 
-Internal Navigation: Uses Next.js Link component for client-side routing between these pages
+**Basic Page Structure & Navigation:**
 
-Getting Started
+* Homepage : Serves as the project's "Welcome Mat," providing a clear introduction and calls to action ("Create/Edit Your Profile", "Explore Portfolios").
 
-Prerequisites
++ Placeholder Pages: Initial page components for home, explore, ranking, and projecttracker within the src/app directory have been created, establishing basic routes.
+
+- Internal Navigation: Uses Next.js Link component for client-side routing between these pages
+
+## **Getting Started**
+
+### Prerequisites
 
 Make sure you have the following installed:
 
-Node.js (v12.x or higher)
+* Node.js (v12.x or higher)
 
-npm (v6.x or higher)
++ npm (v6.x or higher)
 
-MongoDB (local or hosted like MongoDB Atlas)
+- MongoDB (local or hosted like MongoDB Atlas)
 
-Installation
+### Installation
 
 Clone the Repository:
-Bash
-git clone <https://github.com/your-username/student-portfolio-platform.git>
-cd student-portfolio-platform
+```
+git clone <https://github.com/ACM-JUIT/Team-9-Student-Portfolio-Platform-.git>
 
-Install Dependencies:
-Bash
+cd student-portfolio-platform`
+```
+
+### Install Dependencies:
+```
 npm install
+```
+### Set Up Environment Variables
 
-Set Up Environment Variables (optional - future use):
 Create a .env file with:
-
-MONGO_URL=your-mongodb-uri
-JWT_SECRET=your-secret-key
-Run the Application:
-
-Bash
+```
+MongoURL=mongodb://localhost:27017/your_database_name_here
+```
+### Run the Application:
+```
 npm run dev
+```
+## **Usage**
 
-Usage
+1) Create/Edit Profile: Navigate to the "My Profile" section to create or update your academic and professional details.
 
-1)Create/Edit Profile: Navigate to the "My Profile" section to create or update your academic and professional details.
+2) Explore Portfolios: (Future) Discover other students' profiles.
 
-2)Explore Portfolios: (Future) Discover other students' profiles.
+## **Future Enhancement**
 
-Future Enhancement
+- Skill Endorsements: A system for users to endorse skills, enhancing profile credibility.
 
--Skill Endorsements: A system for users to endorse skills, enhancing profile credibility.
+- Ranking System: Implementation of leaderboards based on criteria like projects or skill endorsements.
 
--Ranking System: Implementation of leaderboards based on criteria like projects or skill endorsements.
-
--Project Tracker Module: A dedicated section for users to manage projects with progress tracking, tasks, and deadlines.
+- Project Tracker Module: A dedicated section for users to manage projects with progress tracking, tasks, and deadlines.
