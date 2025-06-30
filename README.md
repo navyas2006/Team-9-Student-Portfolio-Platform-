@@ -6,7 +6,16 @@ Welcome to the Student Portfolio Platform!
 
 This platform serves as a central hub for students to showcase their academic and professional profiles, including their experience, skills, and projects. It also aims to foster peer connections by allowing users to explore and discover other students' portfolios.
 
-## **Features**
+## Table of Contents
+
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Current Progress](#current-progress)
+* [Getting Started](#getting-started)
+* [Usage](#usage)
+* [Future Enhancement](#future-enhancement)
+
+## Features
 
 ✅ User Profile Management: Students can showcase their academic and professional profiles, including experience, skills, and projects.
 
@@ -16,7 +25,7 @@ This platform serves as a central hub for students to showcase their academic an
 
 ✅ Profile Viewing: Users can view their own profiles and, in the future, explore other students' portfolios.
 
-## **Tech Stack**
+## Tech Stack
 
 *Frontend*: Next.js (React), Tailwind CSS
 
@@ -26,7 +35,7 @@ This platform serves as a central hub for students to showcase their academic an
 
 *API Client*: Axios
 
-## **Current Progress**
+## Current Progress
 
 **Frontend Profile Management:**
 
@@ -42,7 +51,7 @@ This platform serves as a central hub for students to showcase their academic an
 
 - Internal Navigation: Uses Next.js Link component for client-side routing between these pages
 
-## **Getting Started**
+## Getting Started
 
 ### Prerequisites
 
@@ -77,13 +86,13 @@ MongoURL=mongodb://localhost:27017/your_database_name_here
 ```
 npm run dev
 ```
-## **Usage**
+## Usage
 
 1) Create/Edit Profile: Navigate to the "My Profile" section to create or update your academic and professional details.
 
 2) Explore Portfolios: (Future) Discover other students' profiles.
 
-## **Future Enhancement**
+## Future Enhancement
 
 - Skill Endorsements: A system for users to endorse skills, enhancing profile credibility.
 
