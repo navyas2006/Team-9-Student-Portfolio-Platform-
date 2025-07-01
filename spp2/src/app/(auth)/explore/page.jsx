@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";
 
 export default function Explore() {
   const [users, setUsers] = useState([]);
@@ -108,92 +107,177 @@ export default function Explore() {
           marginBottom: "2rem",
         }}
       >
-        Registered portfolios
+        Registered Students
       </h1>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Adjusted minmax for more content
           gap: "2rem",
           maxWidth: "1200px",
           margin: "0 auto",
         }}
       >
         {users.map((user) => (
-          <Link key={user._id} href={`/profile/${user._id}`} passHref>
+          <div
+            key={user._id}
+            style={{
+              background: "#1a1a2e",
+              borderRadius: "1rem",
+              padding: "2rem",
+              minHeight: "450px", // Increased minHeight to accommodate more content
+              boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+              transition: "transform 0.3s ease",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              overflow: "hidden", // Hide overflow if content exceeds
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "translateY(-5px)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "translateY(0)")
+            }
+          >
             <div
               style={{
-                background: "#1a1a2e",
-                borderRadius: "1rem",
-                padding: "2rem",
-                minHeight: "300px",
-                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
-                transition: "transform 0.3s ease",
-                cursor: "pointer",
+                width: "96px",
+                height: "96px",
+                background: "#3f3f5f",
+                borderRadius: "50%",
                 display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
-                textAlign: "center",
+                justifyContent: "center",
+                color: "#fff",
+                fontSize: "3rem",
+                fontWeight: "bold",
+                marginBottom: "1rem",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "translateY(-5px)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "translateY(0)")
-              }
             >
-              <div
-                style={{
-                  width: "96px",
-                  height: "96px",
-                  background: "#3f3f5f",
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#fff",
-                  fontSize: "3rem",
-                  fontWeight: "bold",
-                  marginBottom: "1rem",
-                }}
-              >
-                {user.name ? user.name.charAt(0).toUpperCase() : "?"}
-              </div>
-              <h2
-                style={{
-                  fontSize: "1.5rem",
-                  fontWeight: "semibold",
-                  marginBottom: "0.5rem",
-                  color: "#fff",
-                }}
-              >
-                {user.name || "Unnamed User"}
-              </h2>
+              {user.name ? user.name.charAt(0).toUpperCase() : "?"}
+            </div>
+            <h2
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "semibold",
+                marginBottom: "0.5rem",
+                color: "#fff",
+              }}
+            >
+              {user.name || "Unnamed User"}
+            </h2>
+            <p
+              style={{
+                color: "#bbb",
+                fontSize: "0.9rem",
+                marginBottom: "0.25rem",
+              }}
+            >
+              {user.email}
+            </p>
+            <p
+              style={{
+                color: "#bbb",
+                fontSize: "0.9rem",
+                marginBottom: "0.25rem",
+              }}
+            >
+              {user.universityName}
+            </p>
+            <p style={{ color: "#bbb", fontSize: "0.9rem" }}>
+              {user.courseName}
+            </p>
+
+            {user.LinkedInID && (
               <p
                 style={{
                   color: "#bbb",
                   fontSize: "0.9rem",
-                  marginBottom: "0.25rem",
+                  marginTop: "0.5rem",
                 }}
               >
-                {user.universityName}
+                <strong>LinkedIn:</strong>{" "}
+                <a
+                  href={`https://linkedin.com/in/${user.LinkedInID}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#87CEEB", textDecoration: "underline" }}
+                >
+                  {user.LinkedInID}
+                </a>
               </p>
+            )}
+            {user.GithubID && (
               <p style={{ color: "#bbb", fontSize: "0.9rem" }}>
-                {user.courseName}
+                <strong>GitHub:</strong>{" "}
+                <a
+                  href={`https://github.com/${user.GithubID}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#87CEEB", textDecoration: "underline" }}
+                >
+                  {user.GithubID}
+                </a>
               </p>
+            )}
 
-              {user.skills && user.skills.length > 0 && (
+            {user.experience && user.experience.length > 0 && (
+              <div
+                style={{ marginTop: "1rem", width: "100%", textAlign: "left" }}
+              >
+                <h3
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: "bold",
+                    color: "#fff",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  Experience:
+                </h3>
+                <ul style={{ listStyle: "none", paddingLeft: "0" }}>
+                  {user.experience.map((exp, index) => (
+                    <li
+                      key={index}
+                      style={{
+                        color: "#ccc",
+                        fontSize: "0.85rem",
+                        marginBottom: "0.25rem",
+                      }}
+                    >
+                      <strong>{exp.title}</strong> at {exp.company} ({exp.years}{" "}
+                      yrs)
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {user.skills && user.skills.length > 0 && (
+              <div
+                style={{ marginTop: "1rem", width: "100%", textAlign: "left" }}
+              >
+                <h3
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: "bold",
+                    color: "#fff",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  Skills:
+                </h3>
                 <div
                   style={{
-                    marginTop: "1rem",
                     display: "flex",
                     flexWrap: "wrap",
-                    justifyContent: "center",
                     gap: "0.5rem",
                   }}
                 >
-                  {user.skills.slice(0, 3).map((skill, skillIndex) => (
+                  {user.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
                       style={{
@@ -204,43 +288,68 @@ export default function Explore() {
                         borderRadius: "9999px",
                       }}
                     >
-                      {skill.name}
+                      {skill.name} ({skill.level})
                     </span>
                   ))}
-                  {user.skills.length > 3 && (
-                    <span
-                      style={{
-                        background: "#6a0dad",
-                        color: "#fff",
-                        fontSize: "0.75rem",
-                        padding: "0.25rem 0.75rem",
-                        borderRadius: "9999px",
-                      }}
-                    >
-                      +{user.skills.length - 3} more
-                    </span>
-                  )}
                 </div>
-              )}
+              </div>
+            )}
 
-              {user.projects && user.projects.length > 0 && (
-                <div
+            {user.projects && user.projects.length > 0 && (
+              <div
+                style={{ marginTop: "1rem", width: "100%", textAlign: "left" }}
+              >
+                <h3
                   style={{
-                    marginTop: "1rem",
-                    color: "#ccc",
-                    fontSize: "0.85rem",
+                    fontSize: "1rem",
+                    fontWeight: "bold",
+                    color: "#fff",
+                    marginBottom: "0.5rem",
                   }}
                 >
-                  <strong>Projects:</strong>{" "}
-                  {user.projects
-                    .slice(0, 2)
-                    .map((p) => p.title)
-                    .join(", ")}
-                  {user.projects.length > 2 && "..."}
-                </div>
-              )}
-            </div>
-          </Link>
+                  Projects:
+                </h3>
+                <ul style={{ listStyle: "none", paddingLeft: "0" }}>
+                  {user.projects.map((project, index) => (
+                    <li
+                      key={index}
+                      style={{
+                        color: "#ccc",
+                        fontSize: "0.85rem",
+                        marginBottom: "0.25rem",
+                      }}
+                    >
+                      <strong>{project.title}</strong>{" "}
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            color: "#87CEEB",
+                            textDecoration: "underline",
+                          }}
+                        >
+                          (Link)
+                        </a>
+                      )}
+                      {project.description && (
+                        <p
+                          style={{
+                            fontSize: "0.75rem",
+                            color: "#aaa",
+                            marginTop: "0.1rem",
+                          }}
+                        >
+                          {project.description}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </div>
