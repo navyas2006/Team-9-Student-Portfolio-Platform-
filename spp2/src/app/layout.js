@@ -79,8 +79,7 @@ export default function RootLayout({ children }) {
             color: "#666",
           }}
         >
-          &copy; {new Date().getFullYear()} SkillSync — Made with ❤️ using
-          Next.js
+          &copy; {new Date().getFullYear()} SkillSync . All rights reserved.
         </footer>
       </body>
     </html>
