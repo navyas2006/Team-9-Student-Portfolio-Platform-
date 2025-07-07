@@ -50,7 +50,7 @@ export default function HomePage() {
         </Link>
 
         <Link
-          href="/myprofile"
+          href="/editprofile"
           className="px-7 py-3 rounded-xl font-semibold transition-transform transform hover:scale-105"
           style={{
             backgroundColor: "#ffffff",
