@@ -120,62 +120,62 @@ export default function EditProfile() {
           >
             Skills
           </h2>
-          <div
-            key={skills.length}
-            className="space-y-3 p-4 border border-gray-200 rounded-md relative bg-gray-50"
-          >
-            {skills.length > 1 && (
-              <button
-                type="button"
-                onClick={() => removeSkills(index)}
-                className="absolute top-2 right-2 text-red-600 hover:text-red-800 text-xl font-bold"
-                aria-label={`Remove skills ${skills.length + 1}`}
+          <>
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="space-y-3 p-4 border border-gray-200 rounded-md relative bg-gray-50"
               >
-                &times;
-              </button>
-            )}
-            <div>
-              <label className="block font-semibold text-gray-700">
-                Skill Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="e.g., HTML, MongoDB"
-                value={skills.name}
-                onChange={(e) => handleSkillChange(index, e)}
-                className="w-full p-2 border border-gray-300 rounded-md"
-              />
-            </div>
-            <div>
-              <label className="block font-semibold text-gray-700">
-                Skill Level
-              </label>
-              <select
-                name="level"
-                value={skills.level}
-                onChange={(e) => handleSkillChange(index, e)}
-                className="w-full p-2 border border-gray-300 rounded-md"
-              >
-                <option value="">Select level</option>
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="advanced">Advanced</option>
-              </select>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={addSkills}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200"
-          >
-            Add More Skill
-          </button>
-
-          <hr className="border-gray-200" />
-        </div>
-        <div>
+                {skills.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeSkills(index)}
+                    className="absolute top-2 right-2 text-red-600 hover:text-red-800 text-xl font-bold"
+                    aria-label={`Remove skill ${index + 1}`}
+                  >
+                    &times;
+                  </button>
+                )}
+                <div>
+                  <label className="block font-semibold text-gray-700">
+                    Skill Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="e.g.,Next.js"
+                    value={skill.name}
+                    onChange={(e) => handleSkillChange(index, e)}
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold text-gray-700">
+                    Skill Level
+                  </label>
+                  <select
+                    name="level"
+                    value={skill.level}
+                    onChange={(e) => handleSkillChange(index, e)}
+                    className="w-full p-2 border border-gray-300 rounded-md"
+                  >
+                    <option value="">Select level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                </div>
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={addSkills}
+              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200"
+            >
+              Add More Skill
+            </button>
+            <hr className="border-gray-200" />
+          </>
           <h2
             className="text-2xl font-bold text-purple-700"
             style={{ color: "purple" }}
