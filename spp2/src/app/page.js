@@ -4,69 +4,45 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6 py-12"
+      className="min-h-screen flex flex-col justify-center px-6 py-20 relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #f3e8ff, #ffffff, #ede9fe)",
-        color: "#3c0753",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        backgroundColor: "#ffffff",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='35' viewBox='0 0 40 35'%3E%3Cg fill='%23fff5f8' fill-opacity='0.6'%3E%3Cpath d='M10 0l10 0 5 8.66 -5 8.66 -10 0 -5 -8.66zM30 0l10 0 5 8.66 -5 8.66 -10 0 -5 -8.66zM0 17.32l10 0 5 8.66 -5 8.66 -10 0 -5 -8.66zM20 17.32l10 0 5 8.66 -5 8.66 -10 0 -5 -8.66z'/%3E%3C/g%3E%3C/svg%3E")`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "40px 35px",
+        fontFamily: "'Segoe UI', 'cursive', sans-serif",
       }}
     >
-      {/* Logo / App Title */}
-      <h1
-        className="text-5xl md:text-6xl font-extrabold mb-6"
-        style={{
-          color: "#6b21a8",
-          textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
-        }}
-      >
-        🚀 SkillSync
-      </h1>
+      {/* Top Pink Gradient Blob */}
+      <div
+        className="absolute top-[-100px] left-[-150px] w-[300px] h-[300px] rounded-full opacity-20 blur-[100px]"
+        style={{ backgroundColor: "#ec4899", zIndex: 0 }}
+      ></div>
 
-      {/* Subtext */}
-      <p
-        className="text-lg md:text-xl max-w-2xl mb-10"
-        style={{
-          color: "#4b4b4b",
-          lineHeight: "1.6",
-        }}
-      >
-        Discover exciting projects, connect with developers, and grow your
-        career by building an amazing profile.
-      </p>
+      {/* Bottom Right Blob */}
+      <div
+        className="absolute bottom-[-100px] right-[-150px] w-[300px] h-[300px] rounded-full opacity-20 blur-[100px]"
+        style={{ backgroundColor: "#f472b6", zIndex: 0 }}
+      ></div>
 
-      {/* CTA Buttons */}
-      <div className="flex flex-wrap gap-6 justify-center">
-        <Link
-          href="/explore"
-          className="px-7 py-3 rounded-xl font-semibold transition-transform transform hover:scale-105"
+      {/* Hero Content */}
+      <div className="relative z-10 text-center max-w-3xl mx-auto">
+        <h1
+          className="text-4xl md:text-5xl font-extrabold mb-4"
           style={{
-            backgroundColor: "#6b21a8",
-            color: "#fff",
-            boxShadow: "0 6px 12px rgba(107, 33, 168, 0.4)",
-            border: "2px solid #6b21a8",
+            color: "#be185d",
+            fontFamily: "'Satisfy', cursive",
           }}
         >
-          🔍 Explore Projects
-        </Link>
+          Unleash Your Potential. <br /> Showcase Your Journey.
+        </h1>
 
-        <Link
-          href="/editprofile"
-          className="px-7 py-3 rounded-xl font-semibold transition-transform transform hover:scale-105"
-          style={{
-            backgroundColor: "#ffffff",
-            color: "#6b21a8",
-            border: "2px solid #6b21a8",
-            boxShadow: "0 6px 12px rgba(107, 33, 168, 0.15)",
-          }}
-        >
-          🙍‍♀️ Edit Profile
-        </Link>
+        <p className="text-md text-gray-700 max-w-xl mx-auto leading-relaxed">
+          Showcase your awesome academic and professional journey, <br />
+          connect with peers, discover new talents. It's like your personal <br />
+          portfolio gallery, for your skills and projects!
+        </p>
       </div>
-
-      {/* Optional: Footer */}
-      <footer style={{ marginTop: "80px", fontSize: "0.9rem", color: "#888" }}>
-        @2025 SkillSync. All rights reserved.
-      </footer>
     </div>
   );
 }
