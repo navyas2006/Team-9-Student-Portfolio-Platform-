@@ -10,10 +10,10 @@ This platform serves as a central hub for students to showcase their academic an
 
 * [Features](#features)
 * [Tech Stack](#tech-stack)
-* [Current Progress](#current-progress)
 * [Getting Started](#getting-started)
 * [Usage](#usage)
 * [Future Enhancement](#future-enhancement)
+* [Contributing](#contributing)
 
 ## Features
 
@@ -34,22 +34,6 @@ This platform serves as a central hub for students to showcase their academic an
 *Database*: MongoDB (with Mongoose ODM)
 
 *API Client*: Axios
-
-## Current Progress
-
-**Frontend Profile Management:**
-
-* Enhanced Profile Form: A client-side React component featuring a dynamic form. It allows users to input basic profile details, dynamically add multiple entries for experience, skills, and projects, pre-populate fields by fetching existing data (currently the first user found in DB), and submits data as POST (for new profiles) or PUT (for updates).
-
-+ View My Profile Page: A read-only page that displays the details of a single user's profile (currently displays the first user fetched from the database).
-
-**Basic Page Structure & Navigation:**
-
-* Homepage : Serves as the project's "Welcome Mat," providing a clear introduction and calls to action ("Create/Edit Your Profile", "Explore Portfolios").
-
-+ Placeholder Pages: Initial page components for home, explore, ranking, and projecttracker within the src/app directory have been created, establishing basic routes.
-
-- Internal Navigation: Uses Next.js Link component for client-side routing between these pages
 
 ## Getting Started
 
@@ -99,3 +83,20 @@ npm run dev
 - Ranking System: Implementation of leaderboards based on criteria like projects or skill endorsements.
 
 - Project Tracker Module: A dedicated section for users to manage projects with progress tracking, tasks, and deadlines.
+  
+## Contributing
+We welcome contributions! Follow these steps:
+```
+# Step 1: Fork the repo
+
+# Step 2: Create a new branch
+git checkout -b feature/your-feature
+
+# Step 3: Make your changes
+git commit -m "Added new feature"
+
+# Step 4: Push changes
+git push origin feature/your-feature
+
+# Step 5: Create a pull request
+```
