@@ -56,6 +56,14 @@ export default function RootLayout({ children }) {
             >
               My Profile
             </Link>
+            <button className="btn btn-primary bg-amber-400 hover:bg-amber-500 text-white px-4 py-2 rounded">
+              <Link
+                href="/editprofile"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                Edit Profile
+              </Link>
+            </button>
           </nav>
         </header>
 
