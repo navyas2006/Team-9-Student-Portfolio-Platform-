@@ -13,19 +13,19 @@ export default function HomePage() {
         fontFamily: "'Segoe UI', 'cursive', sans-serif",
       }}
     >
-      {/* Top Pink Gradient Blob */}
+      
       <div
         className="absolute top-[-100px] left-[-150px] w-[300px] h-[300px] rounded-full opacity-20 blur-[100px]"
         style={{ backgroundColor: "#ec4899", zIndex: 0 }}
       ></div>
 
-      {/* Bottom Right Blob */}
+     
       <div
         className="absolute bottom-[-100px] right-[-150px] w-[300px] h-[300px] rounded-full opacity-20 blur-[100px]"
         style={{ backgroundColor: "#f472b6", zIndex: 0 }}
       ></div>
 
-      {/* Hero Content */}
+  
       <div className="relative z-10 text-center max-w-3xl mx-auto">
         <h1
           className="text-4xl md:text-5xl font-extrabold mb-4"
