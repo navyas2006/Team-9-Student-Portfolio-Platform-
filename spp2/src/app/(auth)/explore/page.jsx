@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Explore() {
@@ -24,16 +23,53 @@ export default function Explore() {
     fetchUsers();
   }, []);
 
+  /*useEffect(() => {
+    // Simulated fetch with mock data
+    const fetchMockUsers = async () => {
+      try {
+        const mockData = [
+          {
+            _id: "1",
+            name: "Ananya",
+            universityName: "Delhi Technological University",
+            courseName: "B.Tech in Computer Engineering",
+          },
+          {
+            _id: "2",
+            name: "Navya",
+            universityName: "IIT Bombay",
+            courseName: "M.Tech in UI/UX Design",
+          },
+          {
+            _id: "3",
+            name: "Yashvi",
+            universityName: "BITS Pilani",
+            courseName: "B.E. in Information Systems",
+          },
+        ];
+
+        // Mimic API delay
+        await new Promise((res) => setTimeout(res, 1000));
+        setUsers(mockData);
+      } catch (err) {
+        console.error("Error fetching users for Explore page:", err);
+        setError("Failed to load users. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMockUsers();
+  }, []);*/
+
   if (loading) {
     return (
       <div
         style={{
-          background: "#0f0f1b",
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#fff",
           fontSize: "1.2rem",
         }}
       >
@@ -42,135 +78,121 @@ export default function Explore() {
     );
   }
 
-  if (error) {
-    return (
-      <div
-        style={{
-          background: "#0f0f1b",
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "red",
-          fontSize: "1.2rem",
-        }}
-      >
-        Error: {error}
-      </div>
-    );
-  }
-
-  if (users.length === 0) {
-    return (
-      <div
-        style={{
-          background: "#0f0f1b",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#fff",
-          padding: "2rem",
-          textAlign: "center",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: "bold",
-            marginBottom: "1rem",
-          }}
-        >
-          No Portfolios Found Yet!
-        </h1>
-        <p style={{ fontSize: "1.2rem" }}>
-          Be the first to create one from the homepage.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div
       style={{
-        background: "#0f0f1b",
         minHeight: "100vh",
         padding: "2rem 1rem",
-        color: "#fff",
+        backgroundColor: "white",
+        color: "#000",
+        fontFamily: "'Poppins', sans-serif",
       }}
     >
       <h1
         style={{
           textAlign: "center",
-          fontSize: "2.5rem",
-          fontWeight: "bold",
-          marginBottom: "2rem",
+          fontSize: "3.2rem",
+          fontWeight: "800",
+          marginBottom: "2.5rem",
+          color: "#c2185b",
+          textShadow: "2px 2px 4px rgba(255, 182, 193, 0.5)",
+          WebkitTextStroke: "0.8px #f8bbd0",
+          letterSpacing: "1px",
         }}
       >
-        Explore Students 🚀
+        Explore Students
       </h1>
+
+      {error && (
+        <p style={{ color: "red", textAlign: "center", marginBottom: "1rem" }}>
+          {error}
+        </p>
+      )}
 
       <div
         style={{
-          maxWidth: "800px", // Constrain width for better readability in a list
+          maxWidth: "1200px",
           margin: "0 auto",
-          display: "flex",
-          flexDirection: "column", // Stack items vertically
-          gap: "1rem", // Space between list items
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "2rem",
         }}
       >
         {users.map((user) => (
           <Link key={user._id} href={`/profile/${user._id}`} passHref>
             <div
               style={{
-                background: "#1a1a2e", // Background for each list item
-                padding: "1rem 1.5rem",
-                borderRadius: "0.5rem",
-                border: "1px solid #3f3f5f", // Subtle border
-                cursor: "pointer",
-                transition: "background-color 0.3s ease, transform 0.2s ease",
+                background: "#ffe6f0",
+                borderRadius: "1rem",
+                height: "400px",
                 display: "flex",
-                alignItems: "center",
-                gap: "1rem", // Space between avatar and text
+                flexDirection: "column",
+                boxShadow: "0 0 15px 2px rgba(255, 105, 180, 0.3)",
+                border: "1px solid #ffb6c1",
+                cursor: "pointer",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = "#2a2a4a")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "#1a1a2e")
-              }
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.03)";
+                e.currentTarget.style.boxShadow =
+                  "0 0 20px 4px rgba(255, 105, 180, 0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow =
+                  "0 0 15px 2px rgba(255, 105, 180, 0.3)";
+              }}
             >
               <div
                 style={{
-                  width: "50px", // Smaller avatar
-                  height: "50px",
-                  background: "#3f3f5f",
-                  borderRadius: "50%",
+                  flex: "1",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#fff",
-                  fontSize: "1.5rem", // Smaller font
-                  fontWeight: "bold",
-                  flexShrink: 0, // Prevent avatar from shrinking
+                  borderBottom: "1px solid #f5c6d6",
                 }}
               >
-                {user.name ? user.name.charAt(0).toUpperCase() : "?"}
-              </div>
-              <div>
-                <h2
+                <div
                   style={{
-                    fontSize: "1.2rem",
+                    width: "100px",
+                    height: "100px",
+                    borderRadius: "50%",
+                    background: "#d966a8",
+                    color: "white",
+                    fontSize: "2.5rem",
                     fontWeight: "bold",
-                    color: "#fff",
-                    marginBottom: "0.25rem",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  {user.name || "Unnamed User"}
+                  {user.name?.charAt(0).toUpperCase() || "?"}
+                </div>
+              </div>
+
+              <div
+                style={{
+                  flex: "1",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "1rem",
+                }}
+              >
+                <h2 style={{ fontSize: "1.6rem", marginBottom: "0.5rem" }}>
+                  {user.name}
                 </h2>
-                <p style={{ color: "#bbb", fontSize: "0.85rem" }}>
-                  {user.universityName} - {user.courseName}
+                <p
+                  style={{
+                    fontSize: "1rem",
+                    textAlign: "center",
+                    color: "#444",
+                  }}
+                >
+                  {user.universityName}
+                  <br />
+                  {user.courseName}
                 </p>
               </div>
             </div>
